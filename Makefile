@@ -1,6 +1,8 @@
 install:
-	python -r requirements.txt
-tests:
+	pip install -r requirements.txt
+
+test:
 	pytest test.py
+
 run:
 	python main.py
