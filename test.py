@@ -1,3 +1,5 @@
+from your_module_containing_StudentsInMLOps import StudentsInMLOps
+
 def test_enroll_students():
     obj = StudentsInMLOps()
     obj.enrollStudents(5)
