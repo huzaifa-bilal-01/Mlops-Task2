@@ -1,4 +1,5 @@
- def __init__(self):
+class StudentsInMLOps:
+    def __init__(self):
         self.total_strength = 0
 
     def enrollStudents(self, num):
