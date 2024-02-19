@@ -11,6 +11,11 @@ def test_drop_students():
     obj.dropStudents(3)
     assert obj.getTotalStrength() == 7
 
+def test_get_total_strength():
+    obj = StudentsInMLOps()
+    obj.enrollStudents(10)
+    assert obj.getTotalStrength() == 10
+
 def test_get_class_name():
     obj = StudentsInMLOps()
     assert obj.getClassName() == "StudentsInMLOps"
