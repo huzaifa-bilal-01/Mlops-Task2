@@ -30,7 +30,7 @@ pipeline {
         stage('Testing') {
             steps {
                 echo 'Running Tests'
-                bat 'pytest test.py'
+                bat 'C:/Users/PC/AppData/Local/Programs/Python/Python312/Scripts/pytest test.py'
             }
         }
         
