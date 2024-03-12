@@ -8,28 +8,31 @@ pipeline {
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/huzaifa-bilal-01/Mlops-Task2.git']])
             }
         }
+        stage('Branch Name Check') {
+            steps {
+                echo 'Checking branch name'
+                script {
+                    def branchName = "${env.BRANCH_NAME}"
+                    if (branchName == 'main')  {
+                        echo "Branch Name: ${branchName}"
+                        
+                    }
+                }
+            }
+        }
+        
         stage('Install Dependencies') {
             steps {
                 echo 'Installing Dependencies'
-                bat "pip3 install pytest"
+                sh 'python install -r requirements.txt'
             }
         }
         stage('Testing') {
             steps {
                 echo 'Running Tests'
-                sh "pytest test.py"
+                sh 'python -m pytest test.py'
             }
         }
-        stage('Branch Name Check') {
-            steps {
-                echo 'Checking branch name'
-                script {
-                    def branchName = "${env.GIT_BRANCH}"
-                    if (branchName == 'main') {
-                        echo "Branch Name: ${branchName}"
-                    }
-                }
-            }
-        }
+        
     }
 }
