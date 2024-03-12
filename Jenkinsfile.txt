@@ -5,26 +5,27 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 echo "Cloning Repo"
+                sh "ls"
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/huzaifa-bilal-01/Mlops-Task2.git']])
             }
         }
         stage('Install Dependencies') {
             steps {
                 echo 'Installing Dependencies'
-                sh "make install"
+                sh "pip3 install -r requirements.txt"
             }
         }
         stage('Testing') {
             steps {
                 echo 'Running Tests'
-                sh "make tests"
+                sh "python3 -m pytest test.py"
             }
         }
         stage('Branch Name Check') {
             steps {
                 echo 'Checking branch name'
                 script {
-                    def branchName = env.BRANCH_NAME
+                    def branchName = "${env.GIT_BRANCH}"
                     if (branchName == 'main') {
                         echo "Branch Name: ${branchName}"
                     }
