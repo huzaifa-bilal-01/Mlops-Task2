@@ -11,13 +11,13 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing Dependencies'
-                sh "make install"
+                sh "pip install pytest"
             }
         }
         stage('Testing') {
             steps {
                 echo 'Running Tests'
-                sh "make test"
+                sh "pytest test.py"
             }
         }
         stage('Branch Name Check') {
