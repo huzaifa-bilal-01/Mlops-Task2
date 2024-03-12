@@ -11,7 +11,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing Dependencies'
-                sh "pip install pytest"
+                sh "pip3 install pytest"
             }
         }
         stage('Testing') {
