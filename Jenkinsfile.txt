@@ -11,7 +11,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 echo 'Installing Dependencies'
-                sh "pip3 install pytest"
+                sh "C:/Users/PC/AppData/Local/Programs/Python/Python312/Scripts/pip3 install pytest"
             }
         }
         stage('Testing') {
